@@ -7,13 +7,13 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class LConstants {
     static {
-        PinpointConstants.forwardY = 1; //TODO: Need to change.
-        PinpointConstants.strafeX = -2.5; //TODO: Need to change.
+        PinpointConstants.forwardY = 1; //TODO: Measure distance from Y pod to center (inches).
+        PinpointConstants.strafeX = -2.5; //TODO: Measure distance from X pod to center (inches).
         PinpointConstants.distanceUnit = DistanceUnit.INCH;
-        PinpointConstants.hardwareMapName = "pinpoint"; //TODO: Need to change to the name on my config.
+        PinpointConstants.hardwareMapName = "pinpoint"; //TODO: Set the PinpointConstants.hardwareMapName variable to the name of the I2C port connected to the Pinpoint module.
         PinpointConstants.useYawScalar = false;
         PinpointConstants.yawScalar = 1.0;
-        PinpointConstants.useCustomEncoderResolution = false;
+        PinpointConstants.useCustomEncoderResolution = false; //TODO: Set to "true" if using custom encoder resolution.
         PinpointConstants.encoderResolution = GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD;
         PinpointConstants.customEncoderResolution = 13.26291192;
         PinpointConstants.forwardEncoderDirection = GoBildaPinpointDriver.EncoderDirection.REVERSED;
