@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.rowanmcalpin.nextftc.core.Subsystem;
 import com.rowanmcalpin.nextftc.core.command.Command;
@@ -23,7 +24,6 @@ public class Tilt extends Subsystem {
     private double clamp(double position) {
         return Math.max(min_position, Math.min(max_position, position));
     }
-
     public Command tilt_to(double position) {
         double constrainedPosition = clamp(position);
 
@@ -67,6 +67,6 @@ public class Tilt extends Subsystem {
     public void initialize() {
         tilt_servo = OpModeData.INSTANCE.getHardwareMap().get(Servo.class, name);
         tilt_servo.setDirection(Servo.Direction.FORWARD);
-        tilt_servo.setPosition(default_position); // Initialize at default position
+        tilt_servo.setPosition(default_position);
     }
 }

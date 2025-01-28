@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
 import com.pedropathing.follower.FollowerConstants;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.rowanmcalpin.nextftc.core.command.Command;
 import com.rowanmcalpin.nextftc.core.command.groups.ParallelGroup;
@@ -17,7 +18,7 @@ import org.firstinspires.ftc.teamcode.subsystems.Slide;
 import org.firstinspires.ftc.teamcode.subsystems.Specimen;
 import org.firstinspires.ftc.teamcode.subsystems.Tilt;
 
-@TeleOp(name = "NextFTC TeleOp Program Java")
+@TeleOp(name = "Competion Drive")
 class Drive extends NextFTCOpMode {
 
     public Drive() {
@@ -60,19 +61,5 @@ class Drive extends NextFTCOpMode {
         gamepadManager.getGamepad2().getDpadUp().setPressedCommand(Lift.INSTANCE::toHigh);
 
         gamepadManager.getGamepad2().getDpadUp().setReleasedCommand(Claw.INSTANCE::open);
-
-        gamepadManager.getGamepad2().getRightTrigger().setPressedCommand(
-                value -> new SequentialGroup(
-                        Claw.INSTANCE.close(),
-                        Lift.INSTANCE.toHigh()
-                )
-        );
-
-        gamepadManager.getGamepad2().getLeftBumper().setPressedCommand(
-                () -> new ParallelGroup(
-                        Claw.INSTANCE.open(),
-                        Lift.INSTANCE.toLow()
-                )
-        );
     }
 }
