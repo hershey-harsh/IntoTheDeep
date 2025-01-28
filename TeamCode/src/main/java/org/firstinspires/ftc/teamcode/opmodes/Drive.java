@@ -10,6 +10,7 @@ import com.rowanmcalpin.nextftc.ftc.NextFTCOpMode;
 import com.rowanmcalpin.nextftc.ftc.driving.MecanumDriverControlled;
 import com.rowanmcalpin.nextftc.ftc.hardware.controllables.MotorEx;
 
+import org.firstinspires.ftc.teamcode.routines.Tbucket;
 import org.firstinspires.ftc.teamcode.subsystems.BucketLift;
 import org.firstinspires.ftc.teamcode.subsystems.IntakeBlock;
 import org.firstinspires.ftc.teamcode.subsystems.RobotLift;
@@ -58,8 +59,8 @@ class Drive extends NextFTCOpMode {
         driverControlled = new MecanumDriverControlled(motors, gamepadManager.getGamepad1());
         driverControlled.invoke();
 
-        gamepadManager.getGamepad2().getDpadUp().setPressedCommand(Lift.INSTANCE::toHigh);
+        gamepadManager.getGamepad2().getY().setReleasedCommand(Tbucket.INSTANCE::bucket_lift);
 
-        gamepadManager.getGamepad2().getDpadUp().setReleasedCommand(Claw.INSTANCE::open);
+        gamepadManager.getGamepad2().getA().setReleasedCommand(Tbucket.INSTANCE::bucket_drop);
     }
 }
