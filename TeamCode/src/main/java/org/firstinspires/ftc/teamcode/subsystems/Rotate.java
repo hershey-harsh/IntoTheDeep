@@ -45,6 +45,13 @@ public class Rotate extends Subsystem {
         return rotate_to(min_position);
     }
 
+    public Command rotate_incremental() {
+        return rotate_to(current_position + 0.01);
+    }
+    public Command rotate_decremental() {
+        return rotate_to(current_position - 0.01);
+        }
+
     public double get_current_position() {
         return current_position;
     }

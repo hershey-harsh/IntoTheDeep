@@ -24,6 +24,22 @@ public class Slide extends Subsystem {
                 0,
                 this);
     }
+    public Command slide_in() {
+        return new MultipleServosToPosition(slide_servos,
+                1,
+                this);
+    }
+
+    public Command slide_incremental() {
+        return new MultipleServosToPosition(slide_servos,
+                slide_servos.get(0).getPosition() + 0.01,
+                this);
+    }
+    public Command slide_decremental() {
+        return new MultipleServosToPosition(slide_servos,
+                slide_servos.get(0).getPosition() - 0.01,
+                this);
+    }
 
     @Override
     public void initialize() {

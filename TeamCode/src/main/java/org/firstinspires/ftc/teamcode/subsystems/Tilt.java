@@ -42,17 +42,21 @@ public class Tilt extends Subsystem {
     public Command tilt_min() {
         return tilt_to(min_position);
     }
-
     public Command tilt_default() {
         return tilt_to(default_position);
     }
-
     public Command tilt_bucket() {
         return tilt_to(bucket_position);
     }
-
     public Command tilt_max() {
         return tilt_to(max_position);
+    }
+
+    public Command tilt_incremental() {
+        return tilt_to(current_position + 0.01);
+    }
+    public Command tilt_decremental() {
+        return tilt_to(current_position - 0.01);
     }
 
     public double get_current_position() {
